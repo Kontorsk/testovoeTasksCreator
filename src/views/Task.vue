@@ -20,13 +20,13 @@
 </template>
 
 <script>
-import { computed } from "vue";
-import { useStore } from "vuex";
-import AppStatus from "../components/AppStatus";
+import { computed } from 'vue';
+import { useStore } from 'vuex';
+import AppStatus from '../components/AppStatus';
 
 export default {
   components: { AppStatus },
-  props: ["id"],
+  props: ['id'],
   setup(props) {
     const store = useStore();
 
@@ -35,7 +35,7 @@ export default {
 
     const setStatus = (status) => {
       const updated = { ...task.value, status };
-      store.dispatch("changeTask", updated);
+      store.dispatch('changeTask', updated);
     };
 
     return {

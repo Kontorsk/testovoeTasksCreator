@@ -3,29 +3,29 @@
 </template>
 
 <script>
-import { watch, ref } from "vue";
+import { watch, ref } from 'vue';
 export default {
   props: {
     type: {
       type: String,
       validator(value) {
-        return ["active", "done", "pending", "cancelled"].includes(value);
+        return ['active', 'done', 'pending', 'cancelled'].includes(value);
       },
     },
   },
   setup(props) {
     const classesMap = {
-      active: "primary",
-      cancelled: "danger",
-      done: "primary",
-      pending: "warning",
+      active: 'primary',
+      cancelled: 'danger',
+      done: 'primary',
+      pending: 'warning',
     };
 
     const textMap = {
-      active: "Активен",
-      cancelled: "Отменен",
-      done: "Завершен",
-      pending: "Выполняется",
+      active: 'Активен',
+      cancelled: 'Отменен',
+      done: 'Завершен',
+      pending: 'Выполняется',
     };
 
     const className = ref(classesMap[props.type]);

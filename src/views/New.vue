@@ -21,20 +21,20 @@
 </template>
 
 <script>
-import { ref, computed } from "vue";
-import { useStore } from "vuex";
-import { useRouter } from "vue-router";
+import { ref, computed } from 'vue';
+import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
 
 export default {
   setup() {
     const store = useStore();
     const router = useRouter();
-    const title = ref("");
+    const title = ref('');
     const date = ref(null);
-    const description = ref("");
+    const description = ref('');
 
     const isValid = computed(() => {
-      return title.value !== "" && date.value && description.value !== "";
+      return title.value !== '' && date.value && description.value !== '';
     });
 
     const submit = () => {
@@ -43,11 +43,11 @@ export default {
         title: title.value,
         date: new Date(date.value).setHours(23, 59, 59, 999),
         description: description.value,
-        status: "active",
+        status: 'active',
       };
 
-      store.dispatch("createTask", newTask);
-      router.push("/");
+      store.dispatch('createTask', newTask);
+      router.push('/');
     };
 
     return {

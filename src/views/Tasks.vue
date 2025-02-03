@@ -20,10 +20,10 @@
 </template>
 
 <script>
-import { useStore } from "vuex";
-import { computed } from "vue";
-import { useRouter } from "vue-router";
-import AppStatus from "../components/AppStatus";
+import { useStore } from 'vuex';
+import { computed } from 'vue';
+import { useRouter } from 'vue-router';
+import AppStatus from '../components/AppStatus';
 
 export default {
   components: { AppStatus },
