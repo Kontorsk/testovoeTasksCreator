@@ -1,5 +1,5 @@
 <template>
-  <div class="card" v-if="task">
+  <div v-if="task" class="card">
     <h2>{{ task.title }}</h2>
     <p><strong>Статус</strong>: <AppStatus :type="task.status" /></p>
     <p>
@@ -14,7 +14,7 @@
       </button>
     </div>
   </div>
-  <h3 class="text-white center" v-else>
+  <h3 v-else class="text-white center">
     Задачи с id = <strong>{{ id }}</strong> нет.
   </h3>
 </template>
