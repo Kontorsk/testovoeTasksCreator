@@ -1,4 +1,16 @@
-# 123
+# testovoeTasksCreator
+
+# Description
+
+## Task
+
+Используя готовый шаблон с вёрсткой и CSS стилями реализовать работоспособность проекта используя composition API, vuex, vuerouter
+
+## Features
+
+Создание задачи 
+Просмотр задачи
+Смена статуса задачи
 
 ## Project setup
 ```
