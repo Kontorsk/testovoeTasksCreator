@@ -30,8 +30,7 @@ export default {
   setup(props) {
     const store = useStore();
 
-    const id = props.id;
-    const task = computed(() => store.getters.taskById(id));
+    const task = computed(() => store.getters.taskById(props.id));
 
     const setStatus = (status) => {
       const updated = { ...task.value, status };
@@ -40,7 +39,6 @@ export default {
 
     return {
       task,
-      id,
       setStatus,
     };
   },
