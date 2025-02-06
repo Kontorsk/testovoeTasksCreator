@@ -26,7 +26,12 @@ import AppStatus from '../components/AppStatus';
 
 export default {
   components: { AppStatus },
-  props: ['id'],
+  props: {
+    id: {
+      type: String,
+      required: true,
+    },
+  },
   setup(props) {
     const store = useStore();
 
