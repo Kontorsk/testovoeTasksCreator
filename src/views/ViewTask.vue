@@ -1,20 +1,40 @@
 <template>
-  <div v-if="task" class="card">
+  <div
+    v-if="task"
+    class="card"
+  >
     <h2>{{ task.title }}</h2>
-    <p><strong>Статус</strong>: <AppStatus :type="task.status" /></p>
+    <p><span class="bold">Статус</span>: <AppStatus :type="task.status" /></p>
     <p>
-      <strong>Дэдлайн</strong>: {{ new Date(task.date).toLocaleDateString() }}
+      <span class="bold">Дэдлайн</span>:
+      {{ new Date(task.date).toLocaleDateString() }}
     </p>
-    <p><strong>Описание</strong>: {{ task.description }}</p>
+    <p><span class="bold">Описание</span>: {{ task.description }}</p>
     <div>
-      <button class="btn" @click="setStatus('pending')">Взять в работу</button>
-      <button class="btn primary" @click="setStatus('done')">Завершить</button>
-      <button class="btn danger" @click="setStatus('cancelled')">
+      <button
+        class="btn"
+        @click="setStatus('pending')"
+      >
+        Взять в работу
+      </button>
+      <button
+        class="btn primary"
+        @click="setStatus('done')"
+      >
+        Завершить
+      </button>
+      <button
+        class="btn danger"
+        @click="setStatus('cancelled')"
+      >
         Отменить
       </button>
     </div>
   </div>
-  <h3 v-else class="text-white center">
+  <h3
+    v-else
+    class="text-white center"
+  >
     Задачи с id = <strong>{{ id }}</strong> нет.
   </h3>
 </template>

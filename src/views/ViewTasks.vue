@@ -1,20 +1,24 @@
 <template>
-  <h1 v-if="tasks.length === 0" class="text-white center">Задач пока нет</h1>
-  <div v-else>
-    <h3 class="text-white">Всего активных задач: {{ activeTasksCount }}</h3>
-    <div class="card" v-for="task in tasks" :key="task.id">
+  <div>
+    <h3 class="text-white">{{ title }}</h3>
+    <div
+      class="card"
+      v-for="task in tasks"
+      :key="task.id"
+    >
       <h2 class="card-title">
         {{ task.title }}
         <AppStatus :type="task.status" />
       </h2>
       <p>
-        <strong>
-          <small>
-            {{ new Date(task.date).toLocaleDateString() }}
-          </small>
-        </strong>
+        {{ new Date(task.date).toLocaleDateString() }}
       </p>
-      <button class="btn primary" @click="open(task.id)">Посмотреть</button>
+      <button
+        class="btn primary"
+        @click="open(task.id)"
+      >
+        Посмотреть
+      </button>
     </div>
   </div>
 </template>
@@ -33,10 +37,18 @@ export default {
 
     const tasks = computed(() => store.getters.tasks);
     const activeTasksCount = computed(() => store.getters.activeTasksCount);
+    const title = computed(() => {
+      if (tasks.value.length === 0) {
+        return 'Задач пока нет';
+      } else {
+        return `Всего активных задач: ${activeTasksCount.value}`;
+      }
+    });
 
     return {
       tasks,
       activeTasksCount,
+      title,
       open: (id) => router.push(`/task/${id}`),
     };
   },
